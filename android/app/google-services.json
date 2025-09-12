@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "722359653246",
+    "project_id": "darkcinema-bd731",
+    "storage_bucket": "darkcinema-bd731.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722359653246:android:c1dcfa67fc9cc0dc61192f",
+        "android_client_info": {
+          "package_name": "com.example.dark_cinemax"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7a1iIUYic3vKdIAcswyQuSuiyTqFbc6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
