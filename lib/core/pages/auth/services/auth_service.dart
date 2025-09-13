@@ -1,6 +1,7 @@
 import 'package:dark_cinemax/core/pages/auth/exceptions/auth_exceptions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -137,6 +138,31 @@ class AuthService {
       throw Exception(mapFirebaseAuthExceptionCode(e.code));
     } catch (e) {
       print('Error signing in with GitHub: $e');
+    }
+  }
+
+  //facebook sign in
+
+  Future<void> signInWithFacebook() async {
+    try {
+      final LoginResult result = await FacebookAuth.instance.login();
+      if (result.status != LoginStatus.success || result.accessToken == null) {
+        throw Exception('Facebook login failed: ${result.status}');
+      }
+
+      final OAuthCredential credential = FacebookAuthProvider.credential(
+        result.accessToken!.token,
+      );
+
+      await _auth.signInWithCredential(credential);
+    } on FirebaseAuthException catch (e) {
+      print(
+        'Error signing in with Facebook: ${mapFirebaseAuthExceptionCode(e.code)}',
+      );
+      throw Exception(mapFirebaseAuthExceptionCode(e.code));
+    } catch (e) {
+      print('Error signing in with Facebook: $e');
+      rethrow;
     }
   }
 

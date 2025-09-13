@@ -1,5 +1,6 @@
 import 'package:dark_cinemax/core/navigation/navigation.dart';
-import 'package:dark_cinemax/core/pages/auth/auth/auth.dart';
+
+import 'package:dark_cinemax/core/pages/auth/login/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class Wrapper extends StatelessWidget {
           return NavigationPage();
         } else {
           // User is not signed in
-          return AuthPage();
+          return LoginPage();
         }
       },
     );

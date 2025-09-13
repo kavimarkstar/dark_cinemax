@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class NavigationPage extends StatefulWidget {
-  NavigationPage({Key? key}) : super(key: key);
+  const NavigationPage({Key? key}) : super(key: key);
 
   @override
   _NavigationPageState createState() => _NavigationPageState();

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class ProfilePage extends StatefulWidget {
-  ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   _ProfilePageState createState() => _ProfilePageState();
@@ -33,7 +33,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Card(
-                child: Container(
+                child: SizedBox(
                   height: MediaQuery.of(context).size.height * 0.3,
                   child: Column(
                     children: [

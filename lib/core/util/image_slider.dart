@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class AutoImageSlider extends StatefulWidget {
+  const AutoImageSlider({super.key});
+
   @override
   _AutoImageSliderState createState() => _AutoImageSliderState();
 }
