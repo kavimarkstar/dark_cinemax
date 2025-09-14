@@ -191,9 +191,7 @@ class _SignalPageMovieViewState extends State<SignalPageMovieView> {
                       height: 50,
                       child: Row(
                         children: [
-                          SizedBox(
-                            width: double.infinity,
-                            height: 50,
+                          Expanded(
                             child: ElevatedButton.icon(
                               onPressed: _launchUrl,
                               icon: const Icon(Icons.play_arrow),
@@ -206,8 +204,10 @@ class _SignalPageMovieViewState extends State<SignalPageMovieView> {
                             ),
                           ),
                           SizedBox(width: 10),
+
                           SizedBox(
                             height: 50,
+                            width: 70,
                             child: SaveMovieButton(movieId: widget.movie.id),
                           ),
                         ],

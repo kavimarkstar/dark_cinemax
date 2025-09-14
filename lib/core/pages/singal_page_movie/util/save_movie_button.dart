@@ -1,3 +1,4 @@
+import 'package:dark_cinemax/theme/Colors/appDarkColors.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -42,14 +43,17 @@ class SaveMovieButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton.icon(
+    return ElevatedButton(
       onPressed: () => _saveMovie(context),
-      icon: const Icon(Icons.bookmark_add),
-      label: const Text('Save Movie'),
+
       style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
         minimumSize: const Size(double.infinity, 50),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        side: BorderSide(width: 2, color: AppDarkColors.seed),
       ),
+      child: Icon(Icons.bookmark_outline, color: AppDarkColors.seed),
     );
   }
 }

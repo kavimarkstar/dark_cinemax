@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dark_cinemax/core/pages/search/search.dart';
 import 'package:dark_cinemax/core/widget/loding_card.dart';
 import 'package:dark_cinemax/core/widget/movie_card.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,20 @@ class _TvseriesPageState extends State<TvseriesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("TV Series")),
+      appBar: AppBar(
+        title: const Text("TV Series"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SearchPage()),
+              );
+            },
+            icon: Icon(Icons.search),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
