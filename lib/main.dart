@@ -1,6 +1,6 @@
 import 'package:dark_cinemax/core/theme/theme_controller.dart';
 import 'package:dark_cinemax/core/pages/auth/pages/wrapper.dart';
-import 'package:dark_cinemax/firebase_options.dart';
+import 'package:dark_cinemax/core/database/firebase_options.dart';
 import 'package:dark_cinemax/theme/dark/darkTheme.dart';
 import 'package:dark_cinemax/theme/light/lightTheme.dart';
 import 'package:firebase_core/firebase_core.dart';

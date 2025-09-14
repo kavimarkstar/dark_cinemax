@@ -2,6 +2,7 @@ import 'package:dark_cinemax/core/pages/home/services/home_service.dart';
 import 'package:dark_cinemax/core/pages/search/search.dart';
 import 'package:dark_cinemax/core/util/grid_view.dart';
 import 'package:dark_cinemax/core/util/image_slider.dart';
+import 'package:dark_cinemax/theme/Colors/appDarkColors.dart';
 
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,18 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("DARK"),
+        title: Row(
+          children: [
+            Text(
+              "DARK",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: AppDarkColors.seed,
+              ),
+            ),
+            Text("CINEMAX", style: TextStyle(fontWeight: FontWeight.bold)),
+          ],
+        ),
         actions: [
           IconButton(
             onPressed: () {

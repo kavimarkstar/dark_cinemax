@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dark_cinemax/core/pages/auth/services/auth_service.dart';
 import 'package:dark_cinemax/core/pages/profile/view/edit_profile_page.dart';
+import 'package:dark_cinemax/core/pages/profile/view/grid_view.dart';
 import 'package:dark_cinemax/core/pages/settings/setting.dart' show SettingPage;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -134,6 +135,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
             ),
+            SavedMoviesGrid(),
           ],
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:dark_cinemax/core/pages/Tv/tvseries.dart';
 import 'package:dark_cinemax/core/pages/home/home.dart';
 import 'package:dark_cinemax/core/pages/profile/profile.dart';
 import 'package:dark_cinemax/core/pages/trending/trending.dart';
@@ -17,7 +18,7 @@ class _NavigationPageState extends State<NavigationPage> {
   final List<Widget> _pages = <Widget>[
     HomePage(),
     TrendingPage(),
-    const Center(child: Text('NOTIFI')),
+    TvseriesPage(),
     ProfilePage(),
   ];
 
@@ -41,7 +42,7 @@ class _NavigationPageState extends State<NavigationPage> {
             icon: Icon(Icons.trending_up),
             label: 'Trending',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(icon: Icon(Icons.tv), label: 'Tv Series'),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),
             label: 'Profile',

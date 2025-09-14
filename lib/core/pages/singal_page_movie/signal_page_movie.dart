@@ -1,4 +1,5 @@
 import 'package:dark_cinemax/core/pages/home/model/movie.dart';
+import 'package:dark_cinemax/core/pages/singal_page_movie/util/save_movie_button.dart';
 import 'package:dark_cinemax/core/pages/video_player/video_player_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -188,15 +189,28 @@ class _SignalPageMovieViewState extends State<SignalPageMovieView> {
                     child: SizedBox(
                       width: double.infinity,
                       height: 50,
-                      child: ElevatedButton.icon(
-                        onPressed: _launchUrl,
-                        icon: const Icon(Icons.play_arrow),
-                        label: const Text('Watch Now'),
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: double.infinity,
+                            height: 50,
+                            child: ElevatedButton.icon(
+                              onPressed: _launchUrl,
+                              icon: const Icon(Icons.play_arrow),
+                              label: const Text('Watch Now'),
+                              style: ElevatedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
+                          SizedBox(width: 10),
+                          SizedBox(
+                            height: 50,
+                            child: SaveMovieButton(movieId: widget.movie.id),
+                          ),
+                        ],
                       ),
                     ),
                   ),

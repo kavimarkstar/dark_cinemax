@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:dark_cinemax/theme/Colors/appDarkColors.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class AutoImageSlider extends StatefulWidget {
   const AutoImageSlider({super.key});
@@ -17,6 +18,7 @@ class _AutoImageSliderState extends State<AutoImageSlider> {
 
   @override
   Widget build(BuildContext context) {
+    bool isdark = Theme.of(context).brightness == Brightness.dark;
     return StreamBuilder<QuerySnapshot>(
       stream: FirebaseFirestore.instance
           .collection('banner')
@@ -24,7 +26,111 @@ class _AutoImageSliderState extends State<AutoImageSlider> {
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return Center(child: CircularProgressIndicator());
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 18),
+                child: SizedBox(
+                  height: 190,
+                  child: AspectRatio(
+                    aspectRatio: 16 / 9,
+                    child: Center(
+                      child: Animate(
+                        onPlay: (controller) =>
+                            controller.repeat(), // loop shimmer
+                        effects: [ShimmerEffect(duration: 2000.ms)],
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: isdark
+                                ? const Color.fromARGB(255, 70, 70, 70)
+                                : const Color.fromARGB(255, 231, 231, 231),
+                          ),
+                          alignment: Alignment.center,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 12),
+
+              // Dot indicators
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 10,
+                    height: 10,
+                    margin: EdgeInsets.symmetric(horizontal: 4),
+                    decoration: BoxDecoration(shape: BoxShape.circle),
+                    child: Center(
+                      child: Animate(
+                        onPlay: (controller) =>
+                            controller.repeat(), // loop shimmer
+                        effects: [ShimmerEffect(duration: 2000.ms)],
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: isdark
+                                ? const Color.fromARGB(255, 70, 70, 70)
+                                : const Color.fromARGB(255, 231, 231, 231),
+                          ),
+                          alignment: Alignment.center,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 10,
+                    height: 10,
+                    margin: EdgeInsets.symmetric(horizontal: 4),
+                    decoration: BoxDecoration(shape: BoxShape.circle),
+                    child: Center(
+                      child: Animate(
+                        onPlay: (controller) =>
+                            controller.repeat(), // loop shimmer
+                        effects: [ShimmerEffect(duration: 2000.ms)],
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: isdark
+                                ? const Color.fromARGB(255, 70, 70, 70)
+                                : const Color.fromARGB(255, 231, 231, 231),
+                          ),
+                          alignment: Alignment.center,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 10,
+                    height: 10,
+                    margin: EdgeInsets.symmetric(horizontal: 4),
+                    decoration: BoxDecoration(shape: BoxShape.circle),
+                    child: Center(
+                      child: Animate(
+                        onPlay: (controller) =>
+                            controller.repeat(), // loop shimmer
+                        effects: [ShimmerEffect(duration: 2000.ms)],
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: isdark
+                                ? const Color.fromARGB(255, 70, 70, 70)
+                                : const Color.fromARGB(255, 231, 231, 231),
+                          ),
+                          alignment: Alignment.center,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          );
         }
 
         final docs = snapshot.data!.docs;
