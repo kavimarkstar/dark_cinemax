@@ -52,6 +52,7 @@ class _SignalPageMovieViewState extends State<SignalPageMovieView> {
 
   @override
   Widget build(BuildContext context) {
+    bool isdark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -73,7 +74,9 @@ class _SignalPageMovieViewState extends State<SignalPageMovieView> {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.3),
+                    color: isdark
+                        ? Colors.black.withOpacity(0.3)
+                        : Colors.white.withOpacity(0.3),
                     blurRadius: 20,
                     offset: const Offset(0, 10),
                     spreadRadius: 5,
@@ -108,7 +111,10 @@ class _SignalPageMovieViewState extends State<SignalPageMovieView> {
                           end: Alignment.bottomCenter,
                           colors: [
                             Colors.black.withOpacity(0.3),
-                            Colors.black.withOpacity(0.7),
+
+                            isdark
+                                ? Colors.black.withOpacity(0.7)
+                                : Colors.white.withOpacity(0.7),
                           ],
                         ),
                       ),
@@ -119,7 +125,7 @@ class _SignalPageMovieViewState extends State<SignalPageMovieView> {
                     bottom: 0,
                     left: 0,
                     right: 0,
-                    height: 50,
+                    height: 80,
                     child: Container(
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -127,7 +133,9 @@ class _SignalPageMovieViewState extends State<SignalPageMovieView> {
                           end: Alignment.bottomCenter,
                           colors: [
                             Colors.transparent,
-                            Colors.black.withOpacity(0.8),
+                            isdark
+                                ? Colors.black.withOpacity(0.8)
+                                : Colors.white.withOpacity(1),
                           ],
                         ),
                       ),
@@ -148,14 +156,18 @@ class _SignalPageMovieViewState extends State<SignalPageMovieView> {
                             style: Theme.of(context).textTheme.headlineMedium
                                 ?.copyWith(
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                                  color: isdark ? Colors.white : Colors.black,
                                 ),
                           ),
                           const SizedBox(height: 8),
                           Text(
                             '${widget.movie.year} • ${widget.movie.categories.join(', ')}',
                             style: Theme.of(context).textTheme.bodyLarge
-                                ?.copyWith(color: Colors.white70),
+                                ?.copyWith(
+                                  color: isdark
+                                      ? Colors.white70
+                                      : Colors.black87,
+                                ),
                           ),
                         ],
                       ),
@@ -170,6 +182,25 @@ class _SignalPageMovieViewState extends State<SignalPageMovieView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Watch Button
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: 50,
+                      child: ElevatedButton.icon(
+                        onPressed: _launchUrl,
+                        icon: const Icon(Icons.play_arrow),
+                        label: const Text('Watch Now'),
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
                   // Description Card
                   Card(
                     elevation: 2,
@@ -215,22 +246,6 @@ class _SignalPageMovieViewState extends State<SignalPageMovieView> {
                           ),
                           _buildDetailRow('Tags', widget.movie.tags.join(', ')),
                         ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  // Watch Button
-                  SizedBox(
-                    width: double.infinity,
-                    height: 50,
-                    child: ElevatedButton.icon(
-                      onPressed: _launchUrl,
-                      icon: const Icon(Icons.play_arrow),
-                      label: const Text('Watch Now'),
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
                       ),
                     ),
                   ),

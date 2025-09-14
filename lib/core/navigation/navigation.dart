@@ -1,5 +1,6 @@
 import 'package:dark_cinemax/core/pages/home/home.dart';
 import 'package:dark_cinemax/core/pages/profile/profile.dart';
+import 'package:dark_cinemax/core/pages/trending/trending.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -15,7 +16,7 @@ class _NavigationPageState extends State<NavigationPage> {
 
   final List<Widget> _pages = <Widget>[
     HomePage(),
-    const Center(child: Text('Search')),
+    TrendingPage(),
     const Center(child: Text('NOTIFI')),
     ProfilePage(),
   ];
@@ -36,7 +37,10 @@ class _NavigationPageState extends State<NavigationPage> {
             icon: Icon(Icons.home_outlined),
             label: 'Home',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.trending_up),
+            label: 'Trending',
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),
