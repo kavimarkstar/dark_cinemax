@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await ThemeController.instance.load();
   runApp(const MyApp());
@@ -29,7 +28,7 @@ class _MyAppState extends State<MyApp> {
       builder: (context, mode, _) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Custom Theme Demo',
+          title: 'Dark Cinemax',
           theme: LightTheme.lightTheme,
           darkTheme: DarkTheme.darkTheme,
           themeMode: mode,
